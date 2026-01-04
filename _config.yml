@@ -1,0 +1,62 @@
+# Jekyll Configuration for GitHub Pages
+
+# Site settings
+title: The Scientific Revolution
+description: An educational documentary exploring the transformation of scientific thought from 1543-1687
+author: mnabeel
+email: your-email@example.com
+baseurl: "/shamaa"
+url: "https://mnabeel.github.io"
+
+# SEO and Metadata
+lang: en
+keywords: scientific revolution, Copernicus, Galileo, Newton, Kepler, history of science, astronomy, physics, scientific method
+
+# Theme settings
+# Using custom CSS themes instead of Jekyll themes for full control
+# See THEMES.md for available themes
+theme: minima
+
+# Or use a remote theme (uncomment to use)
+# remote_theme: pages-themes/cayman@v0.2.0
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - THEMES.md
+  - DEPLOY.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .gitignore
+
+# Social links
+github_username: mnabeel
+# twitter_username: your_username
+# linkedin_username: your_username
+
+# Google Analytics (optional)
+# google_analytics: UA-XXXXXXXXX-X
+
+# Disqus comments (optional)
+# disqus:
+#   shortname: your-disqus-shortname
+
+# Timezone
+timezone: America/New_York
+
+# Site defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      author: mnabeel

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Revolution - Theme Previews</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .theme-preview {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-preview:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .theme-name {
+            padding: 1rem;
+            background: #333;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .theme-mockup {
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Theme 1: Renaissance Scholar */
+        .theme-1 {
+            background: linear-gradient(135deg, #F4E8D0, #E8D7B8);
+        }
+
+        .theme-1 .mock-header {
+            background: linear-gradient(135deg, #8B1E3F, #6B1731);
+            color: #D4AF37;
+            padding: 1.5rem;
+            border-bottom: 3px solid #D4AF37;
+        }
+
+        .theme-1 .mock-title {
+            font-family: 'Georgia', serif;
+            font-size: 2rem;
+            text-align: center;
+            color: #3C2A21;
+            margin: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-1 .mock-content {
+            background: #FDFBF7;
+            margin: 1rem;
+            padding: 1.5rem;
+            border: 2px solid #D4AF37;
+            border-radius: 5px;
+            box-shadow: inset 0 0 20px rgba(139, 30, 63, 0.05);
+        }
+
+        .theme-1 .mock-card {
+            background: #FFFEF9;
+            border: 1px solid #D4AF37;
+            padding: 1rem;
+            margin: 0.5rem;
+            border-radius: 3px;
+            color: #3C2A21;
+        }
+
+        /* Theme 2: Modern Academic */
+        .theme-2 {
+            background: #FFFFFF;
+        }
+
+        .theme-2 .mock-header {
+            background: linear-gradient(135deg, #1B365D, #2C4A7C);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .theme-2 .mock-title {
+            font-family: 'Georgia', serif;
+            font-size: 2rem;
+            text-align: center;
+            color: #1B365D;
+            margin: 2rem;
+        }
+
+        .theme-2 .mock-content {
+            background: white;
+            margin: 1rem;
+            padding: 1.5rem;
+            border-left: 4px solid #CFB87C;
+        }
+
+        .theme-2 .mock-card {
+            background: #F8F9FA;
+            border: 1px solid #E1E4E8;
+            padding: 1rem;
+            margin: 0.5rem;
+            border-radius: 5px;
+            color: #1B365D;
+        }
+
+        /* Theme 3: Observatory Dark */
+        .theme-3 {
+            background: #0A1128;
+            color: #F8F9FA;
+        }
+
+        .theme-3 .mock-header {
+            background: linear-gradient(135deg, #1A2847, #5D576B);
+            color: #C0C0C0;
+            padding: 1.5rem;
+            border-bottom: 1px solid #5D576B;
+        }
+
+        .theme-3 .mock-title {
+            font-size: 2rem;
+            text-align: center;
+            color: #F8F9FA;
+            margin: 2rem;
+            text-shadow: 0 0 10px rgba(93, 87, 107, 0.5);
+        }
+
+        .theme-3 .mock-content {
+            background: rgba(26, 40, 71, 0.5);
+            margin: 1rem;
+            padding: 1.5rem;
+            border: 1px solid #5D576B;
+            border-radius: 5px;
+        }
+
+        .theme-3 .mock-card {
+            background: rgba(93, 87, 107, 0.2);
+            border: 1px solid #5D576B;
+            padding: 1rem;
+            margin: 0.5rem;
+            border-radius: 5px;
+            color: #C0C0C0;
+        }
+
+        /* Theme 4: Scientific Enlightenment */
+        .theme-4 {
+            background: linear-gradient(135deg, #FFFEF7, #F9F8F0);
+        }
+
+        .theme-4 .mock-header {
+            background: linear-gradient(135deg, #8A9A5B, #9AAA6B);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .theme-4 .mock-title {
+            font-family: 'Georgia', serif;
+            font-size: 2rem;
+            text-align: center;
+            color: #36454F;
+            margin: 2rem;
+        }
+
+        .theme-4 .mock-content {
+            background: white;
+            margin: 1rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .theme-4 .mock-card {
+            background: #FFFEF7;
+            border: 1px solid #B87333;
+            border-left: 4px solid #B87333;
+            padding: 1rem;
+            margin: 0.5rem;
+            border-radius: 3px;
+            color: #36454F;
+        }
+
+        /* Theme 5: Blueprint Technical */
+        .theme-5 {
+            background: #0D47A1;
+            color: #ECEFF1;
+        }
+
+        .theme-5 .mock-header {
+            background: linear-gradient(135deg, #1565C0, #0D47A1);
+            color: #00BCD4;
+            padding: 1.5rem;
+            border-bottom: 2px solid #00BCD4;
+        }
+
+        .theme-5 .mock-title {
+            font-family: 'Courier New', monospace;
+            font-size: 2rem;
+            text-align: center;
+            color: #ECEFF1;
+            margin: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .theme-5 .mock-content {
+            background: rgba(236, 239, 241, 0.05);
+            margin: 1rem;
+            padding: 1.5rem;
+            border: 1px solid #00BCD4;
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .theme-5 .mock-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 188, 212, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 188, 212, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        .theme-5 .mock-card {
+            background: rgba(38, 50, 56, 0.6);
+            border: 1px solid #00BCD4;
+            padding: 1rem;
+            margin: 0.5rem;
+            color: #ECEFF1;
+            font-family: 'Courier New', monospace;
+            position: relative;
+            z-index: 1;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-info {
+            padding: 1rem;
+            background: #f9f9f9;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .select-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #28a745;
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .select-button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>?? Scientific Revolution - Theme Selection</h1>
+    
+    <div class="theme-grid">
+        <!-- Theme 1: Renaissance Scholar -->
+        <div class="theme-preview">
+            <div class="theme-name">1. Renaissance Scholar ??</div>
+            <div class="theme-mockup theme-1">
+                <div class="mock-header">
+                    <div style="text-align: center; font-size: 1.3rem;">? Scientific Revolution</div>
+                </div>
+                <div class="mock-title">The Dawn of Modern Science</div>
+                <div class="mock-content">
+                    <div class="mock-card">
+                        <strong>Copernicus</strong><br>
+                        Heliocentric model
+                    </div>
+                    <div class="mock-card">
+                        <strong>Galileo</strong><br>
+                        Astronomical observations
+                    </div>
+                    <div class="mock-card">
+                        <strong>Newton</strong><br>
+                        Laws of motion
+                    </div>
+                </div>
+            </div>
+            <div class="color-palette">
+                <div class="color-swatch" style="background: #F4E8D0;"></div>
+                <div class="color-swatch" style="background: #8B1E3F;"></div>
+                <div class="color-swatch" style="background: #D4AF37;"></div>
+                <div class="color-swatch" style="background: #3C2A21;"></div>
+            </div>
+            <div class="theme-info">
+                Historical & elegant. Warm parchment tones with gold accents. Best for classical, manuscript-inspired aesthetic.
+            </div>
+            <button class="select-button" onclick="window.location.href='index.html?theme=1'">Select This Theme</button>
+        </div>
+
+        <!-- Theme 2: Modern Academic -->
+        <div class="theme-preview">
+            <div class="theme-name">2. Modern Academic ??</div>
+            <div class="theme-mockup theme-2">
+                <div class="mock-header">
+                    <div style="text-align: center; font-size: 1.3rem;">Scientific Revolution</div>
+                </div>
+                <div class="mock-title">The Dawn of Modern Science</div>
+                <div class="mock-content">
+                    <div class="mock-card">
+                        <strong>Copernicus</strong><br>
+                        Heliocentric model
+                    </div>
+                    <div class="mock-card">
+                        <strong>Galileo</strong><br>
+                        Astronomical observations
+                    </div>
+                    <div class="mock-card">
+                        <strong>Newton</strong><br>
+                        Laws of motion
+                    </div>
+                </div>
+            </div>
+            <div class="color-palette">
+                <div class="color-swatch" style="background: #1B365D;"></div>
+                <div class="color-swatch" style="background: #FFFFFF;"></div>
+                <div class="color-swatch" style="background: #CFB87C;"></div>
+                <div class="color-swatch" style="background: #708090;"></div>
+            </div>
+            <div class="theme-info">
+                Professional & accessible. Clean navy and white with gold accents. Perfect for educational content.
+            </div>
+            <button class="select-button" onclick="window.location.href='index.html?theme=2'">Select This Theme</button>
+        </div>
+
+        <!-- Theme 3: Observatory Dark -->
+        <div class="theme-preview">
+            <div class="theme-name">3. Observatory Dark ??</div>
+            <div class="theme-mockup theme-3">
+                <div class="mock-header">
+                    <div style="text-align: center; font-size: 1.3rem;">?? Scientific Revolution</div>
+                </div>
+                <div class="mock-title">The Dawn of Modern Science</div>
+                <div class="mock-content">
+                    <div class="mock-card">
+                        <strong>Copernicus</strong><br>
+                        Heliocentric model
+                    </div>
+                    <div class="mock-card">
+                        <strong>Galileo</strong><br>
+                        Astronomical observations
+                    </div>
+                    <div class="mock-card">
+                        <strong>Newton</strong><br>
+                        Laws of motion
+                    </div>
+                </div>
+            </div>
+            <div class="color-palette">
+                <div class="color-swatch" style="background: #0A1128;"></div>
+                <div class="color-swatch" style="background: #5D576B;"></div>
+                <div class="color-swatch" style="background: #C0C0C0;"></div>
+                <div class="color-swatch" style="background: #F8F9FA;"></div>
+            </div>
+            <div class="theme-info">
+                Atmospheric & immersive. Dark space theme with cosmic purple. Great for astronomy focus.
+            </div>
+            <button class="select-button" onclick="window.location.href='index.html?theme=3'">Select This Theme</button>
+        </div>
+
+        <!-- Theme 4: Scientific Enlightenment -->
+        <div class="theme-preview">
+            <div class="theme-name">4. Scientific Enlightenment ??</div>
+            <div class="theme-mockup theme-4">
+                <div class="mock-header">
+                    <div style="text-align: center; font-size: 1.3rem;">Scientific Revolution</div>
+                </div>
+                <div class="mock-title">The Dawn of Modern Science</div>
+                <div class="mock-content">
+                    <div class="mock-card">
+                        <strong>Copernicus</strong><br>
+                        Heliocentric model
+                    </div>
+                    <div class="mock-card">
+                        <strong>Galileo</strong><br>
+                        Astronomical observations
+                    </div>
+                    <div class="mock-card">
+                        <strong>Newton</strong><br>
+                        Laws of motion
+                    </div>
+                </div>
+            </div>
+            <div class="color-palette">
+                <div class="color-swatch" style="background: #FFFEF7;"></div>
+                <div class="color-swatch" style="background: #8A9A5B;"></div>
+                <div class="color-swatch" style="background: #B87333;"></div>
+                <div class="color-swatch" style="background: #36454F;"></div>
+            </div>
+            <div class="theme-info">
+                Light & enlightening. Soft ivory with sage green and copper. Emphasizes clarity and knowledge.
+            </div>
+            <button class="select-button" onclick="window.location.href='index.html?theme=4'">Select This Theme</button>
+        </div>
+
+        <!-- Theme 5: Blueprint Technical -->
+        <div class="theme-preview">
+            <div class="theme-name">5. Blueprint Technical ??</div>
+            <div class="theme-mockup theme-5">
+                <div class="mock-header">
+                    <div style="text-align: center; font-size: 1.3rem;">SCIENTIFIC REVOLUTION</div>
+                </div>
+                <div class="mock-title">THE DAWN OF MODERN SCIENCE</div>
+                <div class="mock-content">
+                    <div class="mock-card">
+                        <strong>COPERNICUS</strong><br>
+                        Heliocentric model
+                    </div>
+                    <div class="mock-card">
+                        <strong>GALILEO</strong><br>
+                        Astronomical observations
+                    </div>
+                    <div class="mock-card">
+                        <strong>NEWTON</strong><br>
+                        Laws of motion
+                    </div>
+                </div>
+            </div>
+            <div class="color-palette">
+                <div class="color-swatch" style="background: #0D47A1;"></div>
+                <div class="color-swatch" style="background: #ECEFF1;"></div>
+                <div class="color-swatch" style="background: #00BCD4;"></div>
+                <div class="color-swatch" style="background: #263238;"></div>
+            </div>
+            <div class="theme-info">
+                Technical & precise. Blueprint blue with grid patterns. Highlights engineering and innovation.
+            </div>
+            <button class="select-button" onclick="window.location.href='index.html?theme=5'">Select This Theme</button>
+        </div>
+    </div>
+
+    <div style="max-width: 1200px; margin: 3rem auto; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <h2 style="text-align: center; margin-bottom: 1rem;">How to Apply a Theme</h2>
+        <p style="text-align: center; color: #666;">
+            1. Click the "Select This Theme" button on your preferred theme<br>
+            2. Replace your <code>css/style.css</code> with the corresponding theme file:<br>
+            <code>css/theme-1-renaissance.css</code>, <code>css/theme-2-academic.css</code>, etc.<br><br>
+            <strong>Recommendation:</strong> Theme 2 (Modern Academic) or Theme 4 (Scientific Enlightenment) offer the best balance 
+            of professionalism and readability for educational content about the Scientific Revolution.
+        </p>
+    </div>
+</body>
+</html>
